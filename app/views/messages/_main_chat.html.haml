@@ -1,0 +1,27 @@
+.MainChat
+  .RightHeader 
+    .RightHeader__group
+      .RightHeader__groupName sample
+      %ul.RightHeader__memberList 
+        Member：
+        %li.RightHeader__member 
+          sample
+    %a{ :href => '#', type: "edit", class:'RightHeader__editButton'}
+      Edit
+
+  .MessageFierd
+    .MessageBox
+      .MessageInfo
+        .MessageInfo__userName sample
+        .MessageInfo__date 2020 
+      .Message
+        %p.Message__content sample
+
+  .Footer
+    %Form.Form
+      .Form__contents
+        %input{type: "text", class: 'Form__contents__Content', placeholder: 'type a message'}
+        %label{class: "Form__contents__inputImage"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "Hidden"}
+      %input{type: "submit", class:'Form__btn', value: "Send"} 
