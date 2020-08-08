@@ -13,55 +13,62 @@
   height: 100px;
   display: flex;
   padding: 0 20px;
-  align-items: center;
-  color: #ffffff;
-  font-weight: bold;
-  &__list {
-    height: 20px;
-    width: 260px;
-    display: flex;
-    justify-content: space-between;
-  }
+  align-items: center
+}
+.LeftHeader__list {
+  height: 20px;
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
   &__userName {
     font-size: 16px;
     font-weight: bold;
+    color: #fff;
   }
   &__iconList {
     display: flex;
     justify-content: end;
+    &__edit-user{
+      margin-left: 5px;
+      li {
+        font-size: 13px;
+      }
+      a {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+    &__new-group{
+      margin-left: 5px;
+      li {
+        font-size: 13px;
+      }
+      a {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
   }
-  &__Icon {
-    margin-left: 5px;
-  }
-}
-.fa-edit{
-  color: #ffffff;
-}
-.fa-cog {
-  color: #ffffff;
 }
 
 .GroupList {
   background-color: #2f3e51;
   height: calc(100vh - 100px);
-  padding: 0 20px;
+  padding: 20px 20px 40px 20px;
   overflow: scroll;
-}
-.Group {
-  box-sizing: border-box;
-  padding: 20px 0 40px;
-  &__name {
-    font-size: 15px;
+  .Group {
+    color: #fff;
+    text-decoration: none;
+    &__groupname {
+      font-size: 15px;
+    }
+    &__groupmessage {
+      font-size: 11px;
+      margin-top: 5px;
+    }
   }
-  &__message {
-    font-size: 11px;
-    margin-top: 5px;
-  }
-}  
-.Group a {
-  color: #fff;
-  text-decoration: none;
 }
+
 .MainChat {
   background-color: #ffffff; 
   width: calc(100vw - 300px);
