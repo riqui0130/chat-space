@@ -1,0 +1,16 @@
+.SideBar
+  .LeftHeader 
+    .LeftHeader__list
+      %p.LeftHeader__list__userName
+        sample
+      %ul.LeftHeader__list__iconList
+        %li.LeftHeader__list__iconList__edit-user
+          = link_to "#" do
+            = icon('fas', 'edit')
+        %li.LeftHeader__list__iconList__new-group
+          = link_to "#" do
+            = icon('fas', 'cog')
+  .GroupList
+    = link_to "#", class:'Group' do
+      %p.Group__groupname sample
+      %p.Group__groupmessage sample        
