@@ -11,6 +11,7 @@
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog')
   .GroupList
+<<<<<<< Updated upstream
     - current_user.groups.each do |group|
       .Group
         = link_to '#' do
@@ -18,3 +19,8 @@
             = group.name
           .Group__message
             メッセージはまだありません    
+=======
+    = link_to "#", class:'Group' do
+      %p.Group__groupname sample
+      %p.Group__groupmessage sample     
+>>>>>>> Stashed changes
