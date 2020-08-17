@@ -10,18 +10,24 @@
       Edit
 
   .MessageFierd
+    = render @messages
     .MessageBox
       .MessageInfo
-        .MessageInfo__userName sample
-        .MessageInfo__date 2020 
+        .MessageInfo__userName
+          = message.user.name
+        .MessageInfo__date 
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
       .Message
-        %p.Message__content sample
+        - if message.content.present?
+          %p.Message__content
+            = message.content
+        = image_tag message.image.url, class: 'Message__image' if message.image.present?
 
   .Footer
-    %Form.Form
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
-        %input{type: "text", class: 'Form__contents__Content', placeholder: 'type a message'}
-        %label{class: "Form__contents__inputImage"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "Hidden"}
-      %input{type: "submit", class:'Form__btn', value: "Send"}
+        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__inputImage' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'Form__submit'
