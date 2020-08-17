@@ -1,14 +1,21 @@
 = form_with model: group, local: true do |f|
+<<<<<<< Updated upstream
 - if group.errors.any?
+=======
+   - if group.errors.any?
+>>>>>>> Stashed changes
     .SettingGroupForm__errors
       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
+<<<<<<< Updated upstream
   .SettingGroupForm__errors
     %h2 10件のエラーが発生しました
     %ul
       %li nameを入力してください
+=======
+>>>>>>> Stashed changes
   .SettingGroupForm__field
     .SettingGroupForm__leftField
       = f.label :name, "グループ名", class: 'SettingGroupForm__label'

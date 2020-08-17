@@ -1,4 +1,5 @@
 class Group < ApplicationRecord
+<<<<<<< Updated upstream
   has_many :groups_users
   has_many :users, through: :groups_users
   has_many :messages
@@ -15,4 +16,9 @@ class Group < ApplicationRecord
       'まだメッセージはありません。'
     end
   end
+=======
+  has_many :group_users
+  has_many :users, through: :group_users
+  validates :name, presence: true, uniqueness: true
+>>>>>>> Stashed changes
 end
