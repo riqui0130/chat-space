@@ -1,27 +1,30 @@
 .MainChat
   .RightHeader 
     .RightHeader__group
-      .RightHeader__groupName sample
+      .RightHeader__groupName
+        = @group.name
       %ul.RightHeader__memberList 
         Member：
-        %li.RightHeader__member 
-          sample
-    = link_to '#', class:'RightHeader__editButton' do
-      Edit
+        %li.RightHeader__member
+          - @group.users.each do |user|
+            = user.name
+    = link_to 'Edit', edit_group_path(@group.id), class:'RightHeader__editButton'
 
   .MessageFierd
+    = render @messages
     .MessageBox
       .MessageInfo
-        .MessageInfo__userName sample
-        .MessageInfo__date 2020 
+        .MessageInfo__userName
+        .MessageInfo__date
       .Message
-        %p.Message__content sample
+        %p.Message__content
 
   .Footer
-    %Form.Form
-      .Form__contents
-        %input{type: "text", class: 'Form__contents__Content', placeholder: 'type a message'}
-        %label{class: "Form__contents__inputImage"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "Hidden"}
-      %input{type: "submit", class:'Form__btn', value: "Send"}
+    .Form 
+      = form_for [@group, @message] do |f|
+        .Form__contents
+          = f.text_field :content, class: 'Form__contents__inputContent', placeholder: 'type a message'
+          = f.label :image, class: 'Form__contents__inputImage' do
+            = icon('fas', 'image', class: 'Form__contents__icon')
+            = f.file_field :image, class: 'Hidden'
+        = f.submit 'Send', class: 'Form__btn'
