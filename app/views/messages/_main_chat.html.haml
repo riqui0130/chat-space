@@ -23,8 +23,8 @@
     .Form 
       = form_for [@group, @message] do |f|
         .Form__contents
-          = f.text_field :content, class: 'Form__contents__inputContent', placeholder: 'type a message'
-          = f.label :image, class: 'Form__contents__inputImage' do
-            = icon('fas', 'image', class: 'Form__contents__icon')
+          = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+          = f.label :image, class: 'Form__inputImage' do
+            = icon('fas', 'image', class: 'Form__icon')
             = f.file_field :image, class: 'Hidden'
         = f.submit 'Send', class: 'Form__btn'
