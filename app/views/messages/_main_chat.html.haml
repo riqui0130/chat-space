@@ -10,7 +10,7 @@
             = user.name
     = link_to 'Edit', edit_group_path(@group.id), class:'RightHeader__editButton'
 
-  .MessageFierd
+  .MessageField
     = render @messages
     .MessageBox
       .MessageInfo
@@ -20,11 +20,10 @@
         %p.Message__content
 
   .Footer
-    .Form 
-      = form_for [@group, @message] do |f|
-        .Form__contents
-          = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
-          = f.label :image, class: 'Form__inputImage' do
-            = icon('fas', 'image', class: 'Form__icon')
-            = f.file_field :image, class: 'Hidden'
-          = f.submit 'Send', class: 'Form__btn'
+    = form_for [@group, @message], html: { class: "Form" } do |f|
+      .Form__contents
+        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__inputImage' do
+          = icon('fas', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'Form__submit'
